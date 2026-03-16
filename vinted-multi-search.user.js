@@ -7,8 +7,8 @@
 // @match        *://*.vinted.pl/*
 // @grant        none
 // @run-at       document-idle
-// @updateURL    https://raw.githubusercontent.com/twoj-nick/vinted-multi-search/main/vinted-multi-search.user.js
-// @downloadURL  https://raw.githubusercontent.com/twoj-nick/vinted-multi-search/main/vinted-multi-search.user.js
+// @updateURL    https://github.com/Niccolo1984/Vinted-Multi-Search-Userscript/raw/refs/heads/main/vinted-multi-search.user.js
+// @downloadURL  https://github.com/Niccolo1984/Vinted-Multi-Search-Userscript/raw/refs/heads/main/vinted-multi-search.user.js
 // ==/UserScript==
 
 (function () {
