@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         Vinted Multi-Search
-// @namespace    https://github.com/Niccolo1984/Vinted-Multi-Search-Userscript/raw/refs/heads/main/vinted-multi-search.user.js
-// @version      1.2.0
+// @namespace    https://github.com/twoj-nick/vinted-multi-search
+// @version      1.2.1
 // @description  Find Vinted sellers who have two specific items at once.
 // @author       twoj-nick
 // @match        *://*.vinted.pl/*
 // @grant        none
 // @run-at       document-idle
-// @updateURL    https://github.com/Niccolo1984/Vinted-Multi-Search-Userscript/raw/refs/heads/main/vinted-multi-search.user.js
-// @downloadURL  https://github.com/Niccolo1984/Vinted-Multi-Search-Userscript/raw/refs/heads/main/vinted-multi-search.user.js
+// @updateURL    https://raw.githubusercontent.com/twoj-nick/vinted-multi-search/main/vinted-multi-search.user.js
+// @downloadURL  https://raw.githubusercontent.com/twoj-nick/vinted-multi-search/main/vinted-multi-search.user.js
 // ==/UserScript==
 
 (function () {
@@ -364,7 +364,15 @@
       document.body.style.overflow = '';
     } else if (state === 'open') {
       if (tab)   tab.style.display   = 'none';
-      if (sheet) sheet.classList.add('vmsm-sheet--open');
+      if (sheet) {
+        sheet.classList.add('vmsm-sheet--open');
+        // Blokuj kliknięcia przez 300ms po otwarciu — eliminuje ghost clicki z touchend zakładki
+        const inner = sheet.querySelector('#vmsm-sheet-inner');
+        if (inner) {
+          inner.style.pointerEvents = 'none';
+          setTimeout(() => { inner.style.pointerEvents = ''; }, 300);
+        }
+      }
       document.body.style.overflow = 'hidden';
       adjustSheetForKeyboard();
     }
@@ -433,11 +441,15 @@
       placeTab(tab, tabPosY, tabLeft);
     }, { passive: true });
 
-    tab.addEventListener('touchend', () => {
+    tab.addEventListener('touchend', (e) => {
       dragging = false;
       tab.style.transition = 'transform 0.25s cubic-bezier(0.34,1.56,0.64,1)';
       tab.style.transform  = 'scale(1)';
-      if (!moved) setMobileState('open');
+      if (!moved) {
+        e.preventDefault(); // zapobiega ghost click po touchend
+        // Krótki delay żeby ghost click nie trafił w przyciski sheetu
+        setTimeout(() => setMobileState('open'), 50);
+      }
     });
   }
 
