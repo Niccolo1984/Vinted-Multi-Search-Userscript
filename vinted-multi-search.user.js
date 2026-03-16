@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         Vinted Multi-Search
-// @namespace    https://github.com/twoj-nick/vinted-multi-search
+// @namespace    https://github.com/Niccolo1984/Vinted-Multi-Search-Userscript/raw/refs/heads/main/vinted-multi-search.user.js
 // @version      1.2.1
 // @description  Find Vinted sellers who have two specific items at once.
 // @author       twoj-nick
 // @match        *://*.vinted.pl/*
 // @grant        none
 // @run-at       document-idle
-// @updateURL    https://raw.githubusercontent.com/twoj-nick/vinted-multi-search/main/vinted-multi-search.user.js
-// @downloadURL  https://raw.githubusercontent.com/twoj-nick/vinted-multi-search/main/vinted-multi-search.user.js
+// @updateURL    https://github.com/Niccolo1984/Vinted-Multi-Search-Userscript/raw/refs/heads/main/vinted-multi-search.user.js
+// @downloadURL  https://github.com/Niccolo1984/Vinted-Multi-Search-Userscript/raw/refs/heads/main/vinted-multi-search.user.js
 // ==/UserScript==
 
 (function () {
