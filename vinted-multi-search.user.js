@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Vinted Multi-Search
-// @namespace    https://github.com/twoj-nick/vinted-multi-search
+// @namespace    https://github.com/Niccolo1984/Vinted-Multi-Search-Userscript/raw/refs/heads/main/vinted-multi-search.user.js
 // @version      1.2.0
 // @description  Find Vinted sellers who have two specific items at once.
 // @author       twoj-nick
